@@ -6,10 +6,9 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const channelName = "some-channel-name";
   const [messages, setMessages] = useState([]);
 
-  const [channel, ably] = useChannel(channelName, async (message) => {
+  const [channel, ably] = useChannel("some-channel-name", async (message) => {
     console.log("Received Ably message", message);
     setMessages((messages) => [...messages, message.data]);
   });
@@ -47,14 +46,28 @@ export default function Home() {
 
         <h1>Ably Message Data</h1>
         <button
+          className={styles.button}
           onClick={() => {
             channel.publish("test-message", { text: `${ably.auth.clientId} sent a message` });
           }}
         >
           Send A Message
         </button>
+        <button
+          className={styles.button}
+          onClick={() => {
+            fetch("/api/send-message", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ sender: `${ably.auth.clientId}` })
+            });
+          }}
+        >
+          Send A Message From the Server
+        </button>
         <ul>{messageList}</ul>
-
       </main>
 
       <footer className={styles.footer}>

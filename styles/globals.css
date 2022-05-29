@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+ul, li {
+  list-style: none;
+  line-height: 1.4em;
+}
