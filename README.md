@@ -106,17 +106,14 @@ You can see an example of this in [pages/index.js line 51](https://github.com/ab
 
 ### usePresence
 
-The usePresence hook lets you subscribe to presence events on a channel - this will allow you to get notified when a user joins or leaves the channel. You need to provide `usePresence` with a callback function to accept presence changes.
+The usePresence hook lets you subscribe to presence events on a channel - this will allow you to get notified when a user joins or leaves the channel. The presence data is automatically updated and your component re-rendered when presence changes:
 
 ```js
 import { useState } from "react";
 import { usePresence } from "@ably-labs/react-hooks";
 
 export default function Home() {
-  const [presenceData] = usePresence("your-channel-name", (data) => {
-      presenceData = data;
-      console.log(presenceData);
-  });
+  const [presenceData, updateStatus] = usePresence("your-channel-name");
 ```
 
 You can see an example of this in use in [pages/index.js line 16](https://github.com/ably-labs/next-and-ably/blob/6fe198ccf36920ee44983719b39c90a76d5169e1/pages/index.js#L16s).
