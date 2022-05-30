@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useChannel, usePresence } from "@ably-labs/react-hooks";
 
 import Head from "next/head";
