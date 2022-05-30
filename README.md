@@ -141,8 +141,6 @@ Want to contribute to this project? Have a look at our [contributing guide](CONT
 
 ## More info
 
-// Add links to related blog, video, personal twitter handle.
-
 - [Join our Discord server](https://discord.gg/q89gDHZcBK)
 - [Follow us on Twitter](https://twitter.com/ablyrealtime)
 - [Use our SDKs](https://github.com/ably/)
