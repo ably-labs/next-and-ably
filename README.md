@@ -11,6 +11,7 @@ Using this demo you can:
 - Send [presence updates](https://ably.com/docs/api/realtime-sdk/presence#update) when a new client joins or leaves the demo
 
 This demo is a [Next.js](https://nextjs.org/) project, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It uses the [Ably React Hooks package](https://www.npmjs.com/package/@ably-labs/react-hooks), a symplified syntax for interacting with Ably, which manages the lifecycle of the Ably SDK instances for you taking care to subscribe and unsubscribe to channels and events when your components re-render).
+
 ## Getting Started
 
 ### Ably Setup
@@ -24,6 +25,7 @@ If you are not already signed up, you can [sign up now for a free Ably account](
 4. Copy the secret **“API Key”** value from your Root key.
 5. Create a .env file in the root of the demo repository
 6. Paste the API key into your new env file, along with a env variable for your localhost:
+
 ```bash
 ABLY_API_KEY=your-ably-api-key:goes-here
 API_ROOT=http://localhost:3000
@@ -50,9 +52,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 ## Using Ably
+
 ### Configuration
 
-[pages/_app.js](pages/_app.js) is where the Ably SDK is configured:
+[pages/\_app.js](pages/_app.js) is where the Ably SDK is configured:
 
 ```js
 import { configureAbly } from "@ably-labs/react-hooks";
@@ -82,16 +85,14 @@ import { useState } from "react";
 import { useChannel } from "@ably-labs/react-hooks";
 
 export default function Home() {
-  const [messages, setMessages] = useState([]);
-
   const [channel] = useChannel("your-channel", async (message) => {
     console.log("Received Ably message", message);
   });
-};
+}
 ```
 
 Every time a message is sent to `your-channel` it will be logged to the console. You can do whatever you need to with those messages.
-You can see an example of this in [pages/index.js](/pages/index.js).
+You can see an example of this in [pages/index.js line 11](https://github.com/ably-labs/next-and-ably/blob/6fe198ccf36920ee44983719b39c90a76d5169e1/pages/index.js#L11).
 
 #### Publishing a message
 
@@ -101,7 +102,7 @@ The `channel` instance returned by `useChannel` can be used to send messages to 
 channel.publish("test-message", { text: "message text" });
 ```
 
-You can see an example of this in [pages/index.js](pages/index.js)
+You can see an example of this in [pages/index.js line 51](https://github.com/ably-labs/next-and-ably/blob/6fe198ccf36920ee44983719b39c90a76d5169e1/pages/index.js#L51)
 
 ### usePresence
 
@@ -118,7 +119,7 @@ export default function Home() {
   });
 ```
 
-You can see an example of this in use in [pages/index.js](/pages/index.js).
+You can see an example of this in use in [pages/index.js line 16](https://github.com/ably-labs/next-and-ably/blob/6fe198ccf36920ee44983719b39c90a76d5169e1/pages/index.js#L16s).
 
 You can read more about the hooks available with the Ably Hooks package on the [@ably-labs/ably-hooks documentation on npm](https://www.npmjs.com/package/@ably-labs/react-hooks).
 
