@@ -114,6 +114,15 @@ import { usePresence } from "@ably-labs/react-hooks";
 
 export default function Home() {
   const [presenceData, updateStatus] = usePresence("your-channel-name");
+
+  const presentClients = presenceData.map((msg, index) => (
+    <li key={index}>
+      {msg.clientId}: {msg.data}
+    </li>
+  ));
+
+  return <ul>{presentClients}</ul>;
+}
 ```
 
 You can see an example of this in use in [pages/index.js line 16](https://github.com/ably-labs/next-and-ably/blob/6fe198ccf36920ee44983719b39c90a76d5169e1/pages/index.js#L16s).
