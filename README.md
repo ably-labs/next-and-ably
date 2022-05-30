@@ -10,7 +10,7 @@ Using this demo you can:
 - Get notifications of [user presence](https://ably.com/docs/realtime/presence) on channels
 - Send [presence updates](https://ably.com/docs/api/realtime-sdk/presence#update) when a new client joins or leaves the demo
 
-This demo is a [Next.js](https://nextjs.org/) project, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It uses the [Ably React Hooks package](https://www.npmjs.com/package/@ably-labs/react-hooks), a symplified syntax for interacting with Ably, which manages the lifecycle of the Ably SDK instances for you taking care to subscribe and unsubscribe to channels and events when your components re-render).
+This demo is a [Next.js](https://nextjs.org/) project, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It uses the [Ably React Hooks package](https://www.npmjs.com/package/@ably-labs/react-hooks), a simplified syntax for interacting with Ably, which manages the lifecycle of the Ably SDK instances for you taking care to subscribe and unsubscribe to channels and events when your components re-render).
 
 ## Getting Started
 
