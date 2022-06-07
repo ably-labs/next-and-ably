@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useChannel, usePresence } from "@ably-labs/react-hooks";
+import { Types } from "ably";
+import { ProxyMessage, TextMessage } from "./types";
 
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<TextMessage[]>([]);
 
-  const [channel, ably] = useChannel("some-channel-name", async (message) => {
+  const [channel, ably] = useChannel("some-channel-name", async (message: Types.Message) => {
     console.log("Received Ably message", message);
     setMessages((messages) => [...messages, message.data]);
   });
@@ -51,7 +53,8 @@ export default function Home() {
         <button
           className={styles.button}
           onClick={() => {
-            channel.publish("test-message", { text: `${ably.auth.clientId} sent a message` });
+            const message: TextMessage = { text: `${ably.auth.clientId} sent a message` };
+            channel.publish("test-message", message);
           }}
         >
           Send A Message
@@ -59,12 +62,14 @@ export default function Home() {
         <button
           className={styles.button}
           onClick={() => {
+            const proxyMessage: ProxyMessage = { sender: `${ably.auth.clientId}` };
+
             fetch("/api/send-message", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"
               },
-              body: JSON.stringify({ sender: `${ably.auth.clientId}` })
+              body: JSON.stringify(proxyMessage)
             });
           }}
         >

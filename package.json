@@ -17,6 +17,7 @@
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@types/react": "^18.0.12",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
     "next-transpile-modules": "^9.0.0"
