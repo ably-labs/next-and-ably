@@ -1,8 +1,8 @@
 # Realtime Edge Messaging in your [NextJS](https://nextjs.org/) apps with [Ably](https://ably.com/)
 
-Build engaging and dependable realtime experiences into your apps with [Ably](https://ably.com/) without the infrastructure overhead.
+Add realtime data and interactive multi-user experiences to your Next.js apps with [Ably](https://ably.com/), without the infrastructure overhead.
 
-Use Ably in your Next application using idiomatic, easy to use hooks.
+Use Ably in your NextJS application using idiomatic, easy to use hooks.
 
 Using this demo you can:
 
@@ -78,7 +78,7 @@ You can do this anywhere in your code before the rest of the library is used.
 
 ### useChannel (Publishing and Subscribing to Messages)
 
-The useChannel hook lets you subscribe to a channel and receive messages from it:
+The `useChannel` hook lets you subscribe to a channel and receive messages from it:
 
 ```js
 import { useState } from "react";
@@ -106,7 +106,7 @@ You can see an example of this in [pages/index.js line 51](https://github.com/ab
 
 ### usePresence
 
-The usePresence hook lets you subscribe to presence events on a channel - this will allow you to get notified when a user joins or leaves the channel. The presence data is automatically updated and your component re-rendered when presence changes:
+The `usePresence` hook lets you subscribe to presence events on a channel - this will allow you to get notified when a user joins or leaves the channel. The presence data is automatically updated and your component re-rendered when presence changes:
 
 ```js
 import { useState } from "react";
