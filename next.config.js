@@ -3,6 +3,4 @@ const nextConfig = {
   reactStrictMode: true
 };
 
-const withTM = require("next-transpile-modules")(["@ably-labs/react-hooks"]);
-
-module.exports = withTM(nextConfig);
+module.exports = nextConfig;
