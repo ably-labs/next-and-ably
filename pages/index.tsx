@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useChannel, usePresence } from "@ably-labs/react-hooks";
-import { Types } from "ably";
-import { ProxyMessage, TextMessage } from "./types";
+import type { Types } from "ably";
+import type { ProxyMessage, TextMessage } from "../types";
 
 import Head from "next/head";
 import Image from "next/image";
